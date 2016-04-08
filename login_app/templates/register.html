@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Task | Register</title>
+  <meta name="author" content="Satwik Bhattamishra">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+<div id="header">HONEYNET TASK: Flask Login App</div>
+<div id="content">
+  <div class="form-container">
+    <h1 class="center">Register</h1>
+  {% for message in form.username.errors %}
+    <div class="error">{{ message }}</div><br>
+  {% endfor %}    
+  {% for message in form.password.errors %}
+    <div class="error">{{ message }}</div><br>
+  {% endfor %}     
+    <form action="{{ url_for('register') }}" method='post'>
+      {{ form.csrf_token }}
+      {{ form.username.label }}<br>
+      {{ form.username }}<br>
+      {{ form.password.label }}<br>
+      {{ form.password }}<br>   
+      {{ form.submit }}
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Task | Dashboard</title>
+  <meta name="author" content="Satwik Bhattamishra">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+  <div id="header">HONEYNET TASK: Flask Login App</div>
+  <div id="content">
+    <h2>Welcome, Pietro! :P </h2>
+    <h3 class="center">Username: {{user.username}}</h3>
+    <a href="../logout/">
+      <button class="btn">Log Out</button>
+    </a>
+  </div>
+</body>
+</html>
