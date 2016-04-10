@@ -8,7 +8,6 @@ from models import db, User
 
 
 
-
 class LoginForm(Form):
   username = TextField("Username",  [validators.Required("Please enter your Username.")])
   password = PasswordField("Password", [validators.Required("Please enter a password.")])

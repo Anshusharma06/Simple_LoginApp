@@ -1,7 +1,11 @@
-# Author: Satwik Bhattamishra <ronu66@gmail.com>
-# Task for Honeynet Organization
-
-
+"""
+    Honeynet Task: Simple Login Application
+                ~~~~~~~~~
+                
+    Author: Satwik Bhattamishra <ronu66@gmail.com>
+    Task for Honeynet Organization
+"""
+    
 from login_app import login_app
 from flask import render_template, redirect, request, flash, session, url_for
 from forms import *
@@ -31,10 +35,6 @@ def dashboard():
     return render_template('dashboard.html',user=user)
 
 
-
-
-
-
 @login_app.route('/')
 def index():
   """
@@ -50,9 +50,6 @@ def index():
   if 'username' in session:
     return redirect(url_for('dashboard'))
   return render_template('index.html')
-
-
-
 
 
 @login_app.route('/login/', methods=['GET', 'POST'])
@@ -76,15 +73,13 @@ def login():
       return render_template('login.html', form=form)
     else:
       session['username'] = form.username.data
+      flash('Logged In')
       return redirect(url_for('dashboard'))
                  
   elif request.method == 'GET':
     if 'username' in session:
         return redirect(url_for('dashboard'))
     return render_template('login.html', form=form)
-
-
-
 
 
 @login_app.route('/logout/')
@@ -101,9 +96,8 @@ def logout():
     return redirect(url_for('login'))
      
   session.pop('username', None)
+  flash('logged out')
   return redirect(url_for('index')) 
-
-
 
 
 @login_app.route('/register/', methods=['GET', 'POST'])
@@ -123,6 +117,7 @@ def register():
     form = RegisterForm(request.form)
 
     if form.validate() == False:
+      azss()
       return render_template('register.html', form=form)
 
     else:
@@ -132,6 +127,7 @@ def register():
       
       session['username'] = new_user.username
 
+      status= 'Registered'  
       return redirect(url_for('dashboard'))
    
   elif request.method == 'GET':

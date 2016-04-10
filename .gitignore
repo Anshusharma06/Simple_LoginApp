@@ -1,1 +1,21 @@
+# Ignore database
+login_app.db
+
+# Ignore Test database
+test.db
+
+# Ignore Python byte code
 *.pyc
+
+# Ignore Database Respository
+/db_repository/
+
+#Ignore Virtual Env
+/flask/
+
+# Ignore OS generated files
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+.*.swp
