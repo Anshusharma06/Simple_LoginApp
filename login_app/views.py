@@ -117,7 +117,6 @@ def register():
     form = RegisterForm(request.form)
 
     if form.validate() == False:
-      azss()
       return render_template('register.html', form=form)
 
     else:
@@ -126,8 +125,7 @@ def register():
       db.session.commit()
       
       session['username'] = new_user.username
-
-      status= 'Registered'  
+  
       return redirect(url_for('dashboard'))
    
   elif request.method == 'GET':

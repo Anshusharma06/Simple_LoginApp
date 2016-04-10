@@ -6,6 +6,7 @@ test.db
 
 # Ignore Python byte code
 *.pyc
+*.py~
 
 # Ignore Database Respository
 /db_repository/
