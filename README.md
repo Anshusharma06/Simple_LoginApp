@@ -1,4 +1,4 @@
-##Simple Login App
+#Simple Login App
 
 A simple login application in flask.
 
@@ -42,6 +42,10 @@ To run your server, enter the following commands:
 
 The default port is 5000
 
+To run unit tests, enter the following commands:
+
+    $ chmod a+x test_login_app.py
+    $ ./test_login_app.py
 
 
 ##Usage and Description
