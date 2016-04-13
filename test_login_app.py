@@ -9,8 +9,6 @@ import unittest
 
 from config import basedir
 from login_app import login_app, db
-from login_app.models import User
-from flask import url_for
 from login_app.views import *
 
 class TestCase(unittest.TestCase):
