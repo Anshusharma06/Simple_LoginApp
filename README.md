@@ -1,4 +1,4 @@
-#Simple Login App
+#Simple Login App [![Codacy Badge](https://api.codacy.com/project/badge/grade/8987e67c091c4515a6c73bb164d58374)](https://www.codacy.com/app/satwik55/Simple_LoginApp)
 
 A simple login application in flask.
 
