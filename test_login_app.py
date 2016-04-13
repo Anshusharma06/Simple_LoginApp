@@ -62,6 +62,12 @@ class TestCase(unittest.TestCase):
         result = self.logout()
         assert result.status_code == 200
 
+        test_data = self.register('', 'test_password')
+        assert 'Please enter your Username' in test_data.data
+
+        test_data = self.register('test_username', '')
+        assert 'Please enter your password' in test_data.data
+
 
     def test_login_logout(self):
         test_data = self.login('test_username', 'test_password')
