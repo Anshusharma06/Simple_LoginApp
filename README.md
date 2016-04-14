@@ -1,4 +1,4 @@
-#Simple Login App [![Codacy Badge](https://api.codacy.com/project/badge/grade/8987e67c091c4515a6c73bb164d58374)](https://www.codacy.com/app/satwik55/Simple_LoginApp)
+#Simple Login App [![Codacy Badge](https://api.codacy.com/project/badge/grade/8987e67c091c4515a6c73bb164d58374)](https://www.codacy.com/app/satwik55/Simple_LoginApp) <a href="https://codeclimate.com/github/satwik77/Simple_LoginApp"><img src="https://codeclimate.com/github/satwik77/Simple_LoginApp/badges/gpa.svg" /></a>
 
 A simple login application in flask.
 
