@@ -10,4 +10,3 @@ login_app.config.from_object('config')
 db = SQLAlchemy(login_app)
 
 from login_app import views, models
-

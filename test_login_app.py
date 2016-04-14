@@ -13,6 +13,7 @@ from login_app.views import *
 
 class TestCase(unittest.TestCase):
 
+
     def setUp(self):
         login_app.config['TESTING'] = True
         login_app.config['WTF_CSRF_ENABLED'] = False
@@ -26,8 +27,6 @@ class TestCase(unittest.TestCase):
         db.drop_all()
 
 
-
-
     def register(self, username, password):
         return self.login_app.post('/register/', data=dict(
             username=username,
@@ -36,7 +35,7 @@ class TestCase(unittest.TestCase):
 
 
     def logout(self):
-        return self.login_app.get('/logout/', follow_redirects=True)        
+        return self.login_app.get('/logout/', follow_redirects=True)
 
 
     def login(self, username, password):
@@ -44,8 +43,6 @@ class TestCase(unittest.TestCase):
             username=username,
             password=password
         ), follow_redirects=True)
-
-
 
 
     def test_index(self):

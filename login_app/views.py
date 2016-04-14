@@ -1,16 +1,15 @@
 """
     Honeynet Task: Simple Login Application
                 ~~~~~~~~~
-                
+
     Author: Satwik Bhattamishra <ronu66@gmail.com>
     Task for Honeynet Organization
 """
-    
+
 from login_app import login_app
 from flask import render_template, redirect, request, flash, session, url_for
 from forms import *
 from models import db, User
-
 
 
 @login_app.route('/dashboard/')
@@ -26,13 +25,13 @@ def dashboard():
     """
     if 'username' not in session:
         return redirect(url_for('login'))
- 
-    user = User.query.filter_by(username = session['username']).first()
- 
+
+    user = User.query.filter_by(username= session['username']).first()
+
     if user is None:
         return redirect(url_for('login'))
     else:
-        return render_template('dashboard.html',user=user)
+        return render_template('dashboard.html', user=user)
 
 
 @login_app.route('/')
@@ -57,16 +56,16 @@ def login():
     """
     Opens the page with a form for user login.
 
-    In case of a POST request it validates the form 
+    In case of a POST request it validates the form
     and redirects to the dashboard page after setting
-    a cookie in the user's browser, if the form is 
+    a cookie in the user's browser, if the form is
     valid, else it displays an error message.
 
-    If user is authenticated, he/she is redirected 
+    If user is authenticated, he/she is redirected
     to the dashboard page.
     """
     form = LoginForm()
-   
+
     if request.method == 'POST':
         form = LoginForm(request.form)
         if form.validate() == False:
@@ -75,7 +74,7 @@ def login():
             session['username'] = form.username.data
             flash('Logged In')
             return redirect(url_for('dashboard'))
-                 
+
     elif request.method == 'GET':
         if 'username' in session:
             return redirect(url_for('dashboard'))
@@ -91,13 +90,13 @@ def logout():
     page.
 
     """
- 
+
     if 'username' not in session:
         return redirect(url_for('login'))
-     
+
     session.pop('username', None)
     flash('logged out')
-    return redirect(url_for('index')) 
+    return redirect(url_for('index'))
 
 
 @login_app.route('/register/', methods=['GET', 'POST'])
@@ -105,10 +104,10 @@ def register():
     """
     Takes the data in the form of a POST request from
     the user, validates the form, creates a new User
-    object if the form is valid. 
+    object if the form is valid.
 
-    Adds the new objects in the database object's 
-    session and updates the database by committing 
+    Adds the new objects in the database object's
+    session and updates the database by committing
     the changes.
 
     """
@@ -127,6 +126,6 @@ def register():
             session['username'] = new_user.username
 
             return redirect(url_for('dashboard'))
-   
+
     elif request.method == 'GET':
         return render_template('register.html', form=form)
